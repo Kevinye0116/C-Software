@@ -1,6 +1,6 @@
 //
 // Created by Kevin Ye on 9/15/2023.
-//
+// Copyright (c) Kevin Ye, 2023
 
 #include<stdio.h>
 #include <stdlib.h>
@@ -12,31 +12,32 @@ int main(void) {
     /*
      * print the rule of the game
      */
-    printf("The computer will generate a random number between 1 and %d\n"
-           "You have %d chances.\n", high, chance);
+    printf("The system will generate a random number between 1 and %d.\n"
+           "What you need to do is to guess the correct number.\n"
+           "You have %d chances in total.\n", high, chance);
 
     /*
      * generate a random number
      */
     srand(time(NULL));
     int secret = rand() % high + 1;
-
-    while (chance > 0) {
+    int guess;
+    while (chance > 1) {
         /*
          * let the player enter his/her guess number
          */
-        printf("Enter your guess.\n");
+        printf("You have now %d chances.\n", chance);
+        printf("Enter your guess:");
 
         /*
          * store the guess number,
          * compare it with the secret,
          * and inform the player of the result
          */
-        int guess;
         scanf("%d", &guess);
         if (guess == secret) {
-            printf("You win!\n");
-            break;
+            printf("Congratulations! Mission Completed!\n");
+            return 0;
         } else if (guess > secret) {
             printf("guess > secret\n");
         } else {
@@ -47,5 +48,11 @@ int main(void) {
          */
         chance--;
     }
+    printf("You have now only 1 chance left.\nEnter your last guess:");
+    scanf("%d", &guess);
+    if (guess == secret)
+        printf("Congratulations! Mission Completed!\n");
+    else
+        printf("You are out of chance! Mission failed!\n");
     return 0;
 }
