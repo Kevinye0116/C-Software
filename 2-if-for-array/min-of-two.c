@@ -5,12 +5,24 @@
 #include <stdio.h>
 
 int main(void) {
-  int a = 0;
-  int b = 0;
+    int a = 0;
+    int b = 0;
 
-  scanf("%d%d", &a, &b);
+    scanf("%d%d", &a, &b);
 
-  // TODO: calculate the minimum of a and b
+    // TODO: calculate the minimum of a and b
 
-  return 0;
+    int min = 0;
+
+    // code style
+    if (a < b) {
+        min = a;
+    } else {
+        min = b;
+    }
+
+    // min = a < b ? a : b;
+    printf("min(%d, %d) = %d\n", a, b, min);
+
+    return 0;
 }
