@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.25)
-project(C-Software C)
+cmake_minimum_required(VERSION 3.20)
+project(2023_cpl_coding_0 C)
 
 set(CMAKE_C_STANDARD 17)
 
